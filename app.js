@@ -8,7 +8,13 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-//var Mongoose = require('mongoose');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/local', {useNewUrlParser: true});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+// we're connected!
+});
 //var db = Mongoose.createConnection('mongodb://root:password@localhost:27017/local');
 
 var app = express();
