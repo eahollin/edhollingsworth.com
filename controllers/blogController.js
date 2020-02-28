@@ -1,5 +1,5 @@
 // use db stuff already initialized
-var blog_posts = require('./model/blog_posts.js');
+var blog_posts = require('../model/blog_posts.js');
 
 // Display list of all posts
 exports.post_list = function(req, res, next) {
