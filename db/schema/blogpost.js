@@ -10,4 +10,4 @@ var BlogPostSchema = new Schema({
 });
 
 // compile and export the model
-module.exports = mongoose.model('BlogPost', BlogPostSchema);
+module.exports = mongoose.model('blog_posts', BlogPostSchema);
