@@ -9,7 +9,7 @@ exports.post_list = function(req, res, next) {
         if (err) return next(err);
         // should have our posts...
         if (posts == null) console.log("returned array is null!");
-        else console.log("found " + posts + "!");
+        else console.log("found " + posts.length + " posts!");
 
         res.render('dbtest', { title: 'Database Test', posts: posts});
     });
