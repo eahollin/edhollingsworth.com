@@ -9,12 +9,13 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+// Test database connection
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/local', {useNewUrlParser: true});
+mongoose.connect('mongodb://dbuser:password@localhost:27017/edweb', {useNewUrlParser: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-// we're connected!
+    console.log('Database connected...');
 });
 
 var app = express();
