@@ -8,7 +8,6 @@ router.get('/', function(req, res) {
 
 /* GET blog page. */
 var blog_controller = require('../controllers/blogController');
-
-router.get('/blog', blog_controller.post_list);
+router.get('/blog', blog_controller.renderAllPosts);
 
 module.exports = router;
