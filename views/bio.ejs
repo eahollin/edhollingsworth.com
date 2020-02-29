@@ -1,0 +1,51 @@
+<!-- views/bio.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head') %>
+
+    <!-- Blog theme from Bootstrap -->
+    <link href="stylesheets/blog.css" rel="stylesheet">
+</head>
+<body class="container">
+
+<header>
+    <%- include('partials/header') %>
+</header>
+<div>&nbsp;</div>
+<main role="main" class="container blog-main">
+
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm position-relative"><!--h-md-800 -->
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">Bio</strong>
+            <h3 class="mb-0">Ed Hollingsworth</h3>
+            <div class="mb-1 text-muted">Senior Software Architect</div>
+            <p class="card-text mb-auto">
+                Mr. Hollingsworth is a twenty-year veteran of the IT industry, specializing in the design and implementation
+                of service-based web applications leveraging Java, Enterprise Edition (JEE) technologies. As a Senior Solutions
+                Architect, he possesses a strong background in Service-Oriented Architecture (SOA), as well as significant
+                experience in cloud integration, Microservices development, and DevOps. Mr. Hollingsworth is also fluent in a
+                wide range of third-party APIs, frameworks and tools, and is proficient with Oracle's relational database
+                management system, including SQL and PL/SQL.
+                <br/><br/>
+                Having supported Federal Government clients for over fourteen years, Mr. Hollingsworth is also experienced in
+                project management and technical leadership and has worked within both the waterfall and Agile software development
+                paradigms. Additionally, Mr. Hollingsworth possesses extensive business process modeling experience using standard
+                and proprietary notations, including driving processes to implementation using BPEL and BPMS software tools.
+                Mr. Hollingsworth's commitment to breaking down traditional barriers between Business and IT is clearly evident
+                in his client work.
+            </p>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+            <img src="images/square/headshot2_square.jpg" alt="Ed" class="mr-3 mt-5 rounded-circle" style="height:250px">
+        </div>
+    </div>
+
+</main><!-- /.container -->
+
+<footer>
+    <%- include('partials/footer') %>
+</footer>
+
+</body>
+</html>
