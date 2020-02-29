@@ -1,0 +1,105 @@
+<!-- views/dbtest.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head') %>
+    <!-- Custom styles for this template -->
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+    <!-- Blog theme from Bootstrap -->
+    <link href="stylesheets/blog.css" rel="stylesheet">
+</head>
+<body class="container">
+
+<header>
+    <%- include('partials/header') %>
+</header>
+
+<main role="main" class="container">
+    <div>&nbsp;</div>
+    <div class="row">
+        <div class="col-md-8 blog-main">
+
+            <!-- top card -->
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-primary">World</strong>
+                    <h3 class="mb-0"><%= posts[0].title %></h3>
+                    <div class="mb-1 text-muted"><%= posts[0].publish_date %> by <a href="#"><%= posts[0].author %></a></div>
+                    <p class="card-text mb-auto"><%= posts[0].body %></p>
+                    <a href="#" class="stretched-link">Continue reading</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><!--<img src="images/16x9/astronaut16x9.jpg"/>--><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                </div>
+            </div>
+
+            <h3 class="pb-4 mb-4 font-italic border-bottom">
+                <%=title%>
+            </h3>
+
+            <!-- Iterate over the posts -->
+            <% for (var i = 0; i < posts.length; i++) { %>
+            <div class="blog-post">
+                <h2 class="blog-post-title"><%= posts[i].title %></h2>
+		<p class="blog-post-meta"><%= posts[i].publish_date %> by <a href="#"><%= posts[i].author %></a></p>
+		<p class="blog-post-meta">Tags: 
+			<!-- Iterate over the tags -->
+			<% for (var j = 0; j < posts[i].tags.length; j++) { %>
+			<a href="#" class="badge badge-pill badge-info"><%=posts[i].tags[j]%></a>
+			<% } %>
+		</p>
+
+                <%= posts[i].body %>
+            </div><!-- /.blog-post -->
+            <% } %>
+
+            <nav class="blog-pagination">
+                <a class="btn btn-outline-primary" href="#">Older</a>
+                <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
+            </nav>
+
+        </div><!-- /.blog-main -->
+
+        <aside class="col-md-4 blog-sidebar">
+            <div class="p-4 mb-3 bg-light rounded">
+                <h4 class="font-italic">About</h4>
+                <p class="mb-0">This is an example blog that pulls the blog posts from a MongoDB database. Pretty slick, right? Oh, and the Archives aren't real.</p>
+            </div>
+
+            <div class="p-4">
+                <h4 class="font-italic">Archives</h4>
+                <ol class="list-unstyled mb-0">
+                    <li><a href="#">April 2019</a></li>
+                    <li><a href="#">October 2019</a></li>
+                    <li><a href="#">January 2020</a></li>
+                    <li><a href="#">February 2020</a></li>
+                </ol>
+            </div>
+        </aside><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</main><!-- /.container -->
+
+<footer>
+    <%- include('partials/footer') %>
+</footer>
+
+</body>
+</html>
