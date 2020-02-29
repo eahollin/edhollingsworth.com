@@ -1,6 +1,6 @@
 <!-- views/dbtest.ejs -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myBlog">
 <head>
     <%- include('partials/head') %>
     <!-- Custom styles for this template -->
@@ -23,8 +23,9 @@
 
     <!-- Blog theme from Bootstrap -->
     <link href="stylesheets/blog.css" rel="stylesheet">
+    <script src="core.js"></script>
 </head>
-<body class="container">
+<body class="container" ng-controller="mainController">
 
 <header>
     <%- include('partials/header') %>
@@ -39,9 +40,9 @@
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
                     <strong class="d-inline-block mb-2 text-primary">World</strong>
-                    <h3 class="mb-0"><%= posts[0].title %></h3>
-                    <div class="mb-1 text-muted"><%= posts[0].publish_date %> by <a href="#"><%= posts[0].author %></a></div>
-                    <p class="card-text mb-auto"><%= posts[0].body %></p>
+                    <h3 class="mb-0">{{ posts[0].title }}</h3>
+                    <div class="mb-1 text-muted">{{ posts[0].publish_date }} by <a href="#">{{ posts[0].author }}</a></div>
+                    <p class="card-text mb-auto">{{ posts[0].body }}</p>
                     <a href="#" class="stretched-link">Continue reading</a>
                 </div>
                 <div class="col-auto d-none d-lg-block">
@@ -50,24 +51,24 @@
             </div>
 
             <h3 class="pb-4 mb-4 font-italic border-bottom">
-                <%=title%>
+                <%=title%> with <span class="label label-info">{{ posts.length }}</span> Posts
             </h3>
 
             <!-- Iterate over the posts -->
-            <% for (var i = 0; i < posts.length; i++) { %>
-            <div class="blog-post">
-                <h2 class="blog-post-title"><%= posts[i].title %></h2>
-		<p class="blog-post-meta"><%= posts[i].publish_date %> by <a href="#"><%= posts[i].author %></a></p>
+            <div id="blog-posts" class="row">
+
+            <div class="blog-post" ng-repeat="post in posts">
+                <h2 class="blog-post-title">{{ post.title }}</h2>
+		<p class="blog-post-meta">{{ post.publish_date }} by <a href="#">{{ post.author }}</a></p>
 		<p class="blog-post-meta">Tags: 
 			<!-- Iterate over the tags -->
-			<% for (var j = 0; j < posts[i].tags.length; j++) { %>
-			<a href="#" class="badge badge-pill badge-info"><%=posts[i].tags[j]%></a>
-			<% } %>
+			<!-- for (var j = 0; j < posts[i].tags.length; j++) {
+			<a href="#" class="badge badge-pill badge-info"><!--posts[i].tags[j]</a>
+			} -->
 		</p>
 
-                <%= posts[i].body %>
+                {{ post.body }}
             </div><!-- /.blog-post -->
-            <% } %>
 
             <nav class="blog-pagination">
                 <a class="btn btn-outline-primary" href="#">Older</a>
