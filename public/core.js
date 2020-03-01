@@ -3,7 +3,7 @@
 var myBlog = angular.module("myBlog", []);
 
 (function (app) {
-    app.controller("mainController", function mainController() {
+    app.controller("mainController", ['$scope', '$http', function mainController($scope, $http) {
         var blog = this;
 
         // when landing on the page, get all blog posts and show them
@@ -43,5 +43,5 @@ var myBlog = angular.module("myBlog", []);
                     console.log('Error: ' + data);
                 })
         };
-    });
+    }]);
 })(myBlog);
