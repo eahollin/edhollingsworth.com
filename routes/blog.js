@@ -8,8 +8,8 @@ router.get('/', function(req, res) {
 
 /* Define our blog API here */
 var blog_controller = require('../controllers/blogController');
-router.get('/api/blog', blog_controller.renderAllPosts);
-router.post('/api/blog', blog_controller.createNewPost);
+router.get('/api/posts', blog_controller.getAllPosts);
+router.post('/api/posts', blog_controller.createNewPost);
 //router.delete
 
 module.exports = router;
